@@ -75,3 +75,33 @@ a {
 .panel {
     border-radius: 4px 4px 0px 0px   !important;
 }
+
+label {
+    font-weight: 500;
+}
+
+.input-sm, .form-control {
+    border-radius: 0px;
+}
+
+.form-control:focus {
+    border-color: #00d1b2;
+    -webkit-box-shadow: 0 0 0 0.125em rgba(0, 209, 178, 0.25);
+    box-shadow: 0 0 0 0.125em rgba(0, 209, 178, 0.25);
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.btn-success, .btn-success:focus, .btn-success:hover {
+    color: #333;
+    background-color: #ffd83d;
+    border-color: #ccc;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.btn-success:focus, .btn-success:hover {
+    font-weight: 900;
+}
