@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Propeller is a front-end responsive framework based on Material design & Bootstrap.">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <title>Research Utility - Enrich User Management</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.2/css/bulma.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/mk-spinners.css" type="text/css">
+
+
+    <!-- Propeller navbar -->
+    <link href="http://propeller.in/components/navbar/css/navbar.css" type="text/css" rel="stylesheet"/>
+    <!-- Propeller sidebar  -->
+    <link rel="stylesheet" type="text/css" href="plugins/css/sidebar.css">
+    <link rel="stylesheet" href="css/my-theme.css" type="text/css">
+<style type="text/css">
+    .liselect:hover{
+        background-color: #9fcdff;
+        cursor: pointer;
+    }
+    .borderBottom
+    {
+        border-bottom: 1px solid darkgray;
+    }
+    .divATC{
+        border-style:ridge;
+        max-height: 150px;
+        overflow-y: auto;
+        position: absolute;
+        z-index: 0;
+        width: 530px;
+        background-color: white;
+        display: none;
+    }
+    .list-group-item
+    {
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+
+<body>
+<nav class="navbar navbar-inverse pmd-navbar navbar-fixed-top pmd-z-depth">
+    <div class="container-fluid">
+        <!-- Sidebar Toggle Button-->
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <span class="pmd-sidebar-toggle toggle-menu-style"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        </div>
+
+        <!-- Navbar Right icon -->
+        <div class="pmd-navbar-right-icon pull-right">
+            <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<section id="pmd-main">
+    <!-- Left sidebar -->
+    <aside class="pmd-sidebar sidebar-default pmd-sidebar-left-fixed pmd-sidebar-left pmd-z-depth" role="navigation">
+        <ul class="nav pmd-sidebar-nav">
+            <!-- My Account -->
+            <li class="dropdown pmd-dropdown pmd-user-info">
+                <a class="btn-user dropdown-toggle media">
+                    <div class="media-left">
+                        <img width="40" height="40" alt="avatar" src="http://propeller.in/assets/images/avatar-icon-40x40.png">
+                    </div>
+                    <div class="media-body media-middle pf-name-style">Admin</div>
+                </a>
+
+            </li>
+            <li class="pt-20"> <a class="pmd-ripple-effect" href="index.html"><span class="media-body">FA Search</span></a> </li>
+            <li><a class="pmd-ripple-effect" href="contactsearch.html"><span class="media-body " style="color: rgb(51, 122, 183);">Contact Search</span></a></li>
+            <li><a class="pmd-ripple-effect" href="propertysearch.html"><span class="media-body">Property Search</span></a></li>
+            <li><a class="pmd-ripple-effect" href="javascript:void(0);"><span class="media-body">Enrich Beta</span></a></li>
+            <li><a class="pmd-ripple-effect" href="http://inedapps:8800/doku.php?id=applications:researchutil#enrich;"><span class="media-body">About</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- Start Content -->
+    <div class="pmd-content custom-pmd-content" id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+
+                    <div class="row">
+                        <div class="col-md-12 text-right my-breadcrumb">
+                            <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Enrich Beta&nbsp;
+                            /&nbsp;
+                            <span class="my-breadcrumb-child"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Search</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Search</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            &nbsp;
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>Search Property</label>
+                                <input class="form-control input-sm" id="propSearch" type="text" onkeyup="jsPropertyDetails.GetPropertyAddress()" placeholder="Enter Text to Search Property">
+                                <div class="divATC">
+                                    <ul class="list-group">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button type="button" onclick="jsPropertyDetails.OnSearchPropDetails()" style="margin-top: 22px;" class="btn"><span class="fs-16"><span class="fa fa-search"></span></span>&nbsp;Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divpropDetail" style="display: none">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Street No</th>
+                                <th>Street Name</th>
+                                <th>City</th>
+                                <th>Zip code</th>
+                                <th>County</th>
+                                <th>View</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pmd-sidebar-overlay"></div>
+    <div class="overlay">
+        <div  class="mk-spinner-centered mk-spinner-pie"></div>
+    </div>
+</section>
+</body>
+
+<!-- Jquery js -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Bootstrap js -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Propeller Sidebar js -->
+<script type="text/javascript" language="javascript" src="plugins/js/sidebar.js"></script>
+<script type="text/javascript" language="javascript" src="js/ApplicationJS/JSPropertyDetails.js"></script>
+<script src="js/my-site.js"></script>
+
+
+
+</html>
+
