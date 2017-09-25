@@ -105,3 +105,8 @@ label {
 .btn-success:focus, .btn-success:hover {
     font-weight: 900;
 }
+
+
+#map-canvas {
+    height: 500px;
+}
