@@ -24,6 +24,7 @@
 .pmd-sidebar::-webkit-scrollbar { width: 5px; background-color: #F7F7F7;}
 .pmd-sidebar::-webkit-scrollbar-thumb { border-radius: 10px; -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); background-color: #BFBFBF;}
 
+
 /* -- Sidebar My account --------------------------------------- */
 .pmd-sidebar .pmd-user-info > a{ background-color:#333; background-size:cover; color:#fff;}
 .pmd-sidebar .pmd-user-info > a:hover, .pmd-sidebar .pmd-user-info > a:focus{ background-color:#333;}
@@ -78,3 +79,53 @@ body.pmd-body-open { overflow: hidden;}
 .topbar-fixed.pmd-sidebar-open::before { border-radius: 50%; display: block; height: 3000px; width: 3000px; -ms-transform:scale(1); transform:scale(1); opacity:1; left:50%; bottom:50%; margin-left:-1500px; margin-bottom:-1500px;}
 .topbar-fixed .topbar-container{ opacity:0; transition: all 0.8s cubic-bezier(0.55, 0, 0.1, 1); transition-delay:0s;}
 .topbar-fixed.pmd-sidebar-open .topbar-container{ opacity:1; transition-delay:1s;}
+
+
+/* -- Sidebar dropdown menu --*/
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
