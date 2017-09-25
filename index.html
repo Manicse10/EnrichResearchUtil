@@ -22,6 +22,13 @@
   <link rel="stylesheet" type="text/css" href="plugins/css/sidebar.css">
   <link rel="stylesheet" href="css/my-theme.css" type="text/css">
 
+  /* Propeller typography */
+  <link href="http://propeller.in/components/typography/css/typography.css" type="text/css" rel="stylesheet" />
+
+  /* Propeller alert */
+  <link href="http://propeller.in/components/alert/css/alert.css" type="text/css" rel="stylesheet" />
+
+
 
 </head>
 
@@ -55,16 +62,26 @@
           </div>
           <div class="media-body media-middle pf-name-style">Admin</div>
         </a>
-
       </li>
-      <li class="pt-20"> <a class="pmd-ripple-effect" href="index.html"><span class="media-body" style="color: rgb(51, 122, 183);">FA Search</span></a> </li>
-      <li><a class="pmd-ripple-effect" href="contactsearch.html"><span class="media-body">Contact Search</span></a></li>
-      <li><a class="pmd-ripple-effect" href="propertysearch.html"><span class="media-body">Property Search</span></a></li>
-      <li><a class="pmd-ripple-effect" href="javascript:void(0);"><span class="media-body">Enrich Beta</span></a></li>
+
+      <li class="pt-20"> <a class="pmd-ripple-effect" href="index.html"><span class="media-body" style="color: rgb(51, 122, 183);"><i class="fa fa-american-sign-language-interpreting" aria-hidden="true"></i>&nbsp;&nbsp;FA Search</span></a> </li>
+      <li><a class="pmd-ripple-effect" href="contactsearch.html"><span class="media-body"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;Contact Search</span></a></li>
+      <li><a class="pmd-ripple-effect" href="propertysearch.html"><span class="media-body"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;Property Search</span></a></li>
+
+      <li><a id="dLabel" data-toggle="dropdown" class="pmd-ripple-effect" href="#"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Enrich BETA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="caret" style="size:100px;"></span>
+      </a>
+      <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+        <li><a href="enrichbasicsearch.html">Basic Search</a></li>
+        <li><a href="myallocation.html">My Allocation</a></li>
+        <li><a href="usermanagement.html">User Management</a></li>
+        <li><a href="settings.html">Setting</a></li>
+      </ul>
+      </li>
+
       <li><a class="pmd-ripple-effect" href="http://inedapps:8800/doku.php?id=applications:researchutil#enrich;"><span class="media-body">About</span></a></li>
     </ul>
   </aside>
-
   <!-- Start Content -->
   <div class="pmd-content custom-pmd-content" id="content">
     <div class="container">
@@ -110,7 +127,12 @@
               </div>
               <div class="row">
                 <div class="col-xs-12 text-right">
-                  <button type="button" class="btn btn-success"><span class="fs-16"><span class="fa fa-search"></span></span>&nbsp;Search</button>
+                  <!-- Display a success alert at the top-right position of the window -->
+                  <button type="button" data-positionX="center" data-positionY="top" data-color="#444" data-duration="10000" data-effect="fadeInUp"
+                          data-message=" Successfully 2rd Search." data-type="success"
+                          class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button> <!-- Propeller alert-->
+
+                  <button type="button" id ="btn_search" class="btn btn-success"><span class="fs-16"><span class="fa fa-search"></span></span>&nbsp;Search</button>
                   <button type="button" class="btn">Clear</button>
                 </div>
               </div>
@@ -136,6 +158,53 @@
 <script type="text/javascript" language="javascript" src="plugins/js/sidebar.js"></script>
 <script src="js/my-site.js"></script>
 
+<!-- Propeller ripple effect js -->
+<script type="text/javascript" src="http://propeller.in/components/button/js/ripple-effect.js"></script>
+
+<!-- Propeller alerts js -->
+<script type="text/javascript" src="http://propeller.in/components/alert/js/alert.js"></script>
+
+<script src="js/bootbox.min.js"></script>
+<!--<script src="js/jquery-1.11.1.js"></script>-->
+
+
+<script>
+    $(document).ready(function() {
+
+        function ShowMessage(message, header) {
+            var popup = bootbox.dialog({
+                message: message,
+                title: header,
+                size: "small",
+                buttons: {
+                    success: {
+                        label: "OK",
+                        classname: "btn btn-success",
+                        callback: function () {
+
+                            console.log('This was logged in the callback!');
+                        }
+                    }
+                }
+            });
+            popup.css({
+                'top': '50%',
+                'margin-top': function () {
+                    return -(298);
+                }
+            }).find("h4").css("color", "#000");
+        }
+
+
+        $("#btn_search").click(function () {
+           bootbox.alert('Successfull search');
+            //bootbox('success', "alert");
+            //ShowMessage("success", "alert");
+        });
+
+    });
+
+</script>
 
 
 </html>
