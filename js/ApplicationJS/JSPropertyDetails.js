@@ -3,7 +3,7 @@ var jsPropertyDetails=new function () {
 
         var searchKey=$("#propSearch").val();
                 $.ajax({
-                    url: "http://localhost:63683/api/EmployeeDetails/GetPropertyAddresses",
+                    url: "http://192.168.6.40:63683/api/EmployeeDetails/GetPropertyAddresses",
                     type: "Get",
                     data: {
                         searchKey: searchKey,
@@ -29,7 +29,7 @@ var jsPropertyDetails=new function () {
     this.GetPropertyDetails=function (_e) {
         var currZip=$(_e).attr('zipCode');
         $.ajax({
-            url: "http://localhost:63683/api/EmployeeDetails/GetPropertyAddresses",
+            url: "http://192.168.6.40:63683/api/EmployeeDetails/GetPropertyAddresses",
             type: "Get",
             data: {
                 searchKey: currZip,
@@ -40,7 +40,7 @@ var jsPropertyDetails=new function () {
                 $("#divpropDetail").show();
                 if(data.length>0) {
                     $(data).each(function () {
-                        $("#divpropDetail").find('table tbody').append("<tr><td>"+this.StreetNumber+"</td><td>"+this.StreetName+"</td><td>"+this.City+"</td><td>"+this.Zipcode+"</td><td>"+this.County+"</td><td><a href='javascript:void(0);'><i class='fa fa-eye'></i></td></tr>>")
+                        $("#divpropDetail").find('table tbody').append("<tr><td>"+this.StreetNumber+"</td><td>"+this.StreetName+"</td><td>"+this.City+"</td><td>"+this.Zipcode+"</td><td>"+this.County+"</td><td><a href='gmap.html'><i class='fa fa-eye'></i></td></tr>>")
                     })
                 }else
                 {
@@ -56,7 +56,7 @@ var jsPropertyDetails=new function () {
     this.OnSearchPropDetails=function () {
         var currSearch=$("#propSearch").val();
         $.ajax({
-            url: "http://localhost:63683/api/EmployeeDetails/GetPropertyAddresses",
+            url: "http://192.168.6.40:63683/api/EmployeeDetails/GetPropertyAddresses",
             type: "Get",
             data: {
                 searchKey: currSearch,
@@ -67,7 +67,7 @@ var jsPropertyDetails=new function () {
                 $("#divpropDetail").show();
                 if(data.length>0) {
                     $(data).each(function () {
-                        $("#divpropDetail").find('table tbody').append("<tr><td>"+this.StreetNumber+"</td><td>"+this.StreetName+"</td><td>"+this.City+"</td><td>"+this.Zipcode+"</td><td>"+this.County+"</td><td><a href='javascript:void(0);'><i class='fa fa-eye'></i></td></tr>>")
+                        $("#divpropDetail").find('table tbody').append("<tr><td>"+this.StreetNumber+"</td><td>"+this.StreetName+"</td><td>"+this.City+"</td><td>"+this.Zipcode+"</td><td>"+this.County+"</td><td><a href='gmap.html'><i class='fa fa-eye'></i></td></tr>>")
                     })
                 }else
                 {
